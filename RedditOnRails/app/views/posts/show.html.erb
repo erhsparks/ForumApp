@@ -1,4 +1,4 @@
-<% link_address = @post.url ? @post.url : post_url(@post) %>
+<% link_address = @post.url == "http://" ? @post.url : post_url(@post) %>
 <h1><%= link_to @post.title, link_address %> by <%= @post.author.username %></h1>
 
 <p>
@@ -11,4 +11,7 @@
 
 <%= button_to "Delete #{@post.title}!", post_url(@post), method: :delete %>
 <br>
-<%= link_to "<< Back to #{@post.sub.title}", sub_url(@post.sub) %>
+<% @post.subs.each do |s| %>
+<%= link_to "<< Back to #{s.title}", sub_url(s) %>
+<br>
+<% end %>

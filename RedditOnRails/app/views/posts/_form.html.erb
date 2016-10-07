@@ -27,9 +27,13 @@
 <br>
 
   <% Sub.all.each do |s| %>
-    <label for="subs"><%= s.title %></label>
-    <input id="subs" type="radio" name="post[sub_id]" value=<%= s.id %> <%= "checked" if post.sub_id == s.id %>>
+    <label><%= s.title %>
+      <input id="subs" type="checkbox" name="post[sub_ids][]" value=<%= s.id %> <%= "checked" if post.sub_ids.include?(s.id) %>>
+    </label>
+    <br>
   <% end %>
+
+<br>
 
 <input type="submit" value="<%= button_name %>">
 
