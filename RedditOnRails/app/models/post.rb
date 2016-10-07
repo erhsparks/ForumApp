@@ -13,7 +13,9 @@
 #
 
 class Post < ActiveRecord::Base
-  belongs_to :sub
+  has_many :post_subs
+
+  has_many :subs, through: :post_subs, source: :sub
 
   has_one :moderator, through: :sub
 
