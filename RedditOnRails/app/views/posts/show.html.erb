@@ -1,0 +1,14 @@
+<% link_address = @post.url ? @post.url : post_url(@post) %>
+<h1><%= link_to @post.title, link_address %> by <%= @post.author.username %></h1>
+
+<p>
+  <%= @post.content %>
+</p>
+
+<%= button_to "Edit", edit_post_url(@post), method: :get %>
+
+<br>
+
+<%= button_to "Delete #{@post.title}!", post_url(@post), method: :delete %>
+<br>
+<%= link_to "<< Back to #{@post.sub.title}", sub_url(@post.sub) %>
