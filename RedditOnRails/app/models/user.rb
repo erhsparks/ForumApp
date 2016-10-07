@@ -11,6 +11,14 @@
 #
 
 class User < ActiveRecord::Base
+  has_many :subs,
+    foreign_key: :moderator_id
+
+  has_many :posts,
+    foreign_key: :author_id
+
+  has_many :moderated_posts, through: :subs, source: :posts
+
   validates :username, presence: true, uniqueness: true
   validates :password_digest, presence: true
   validates :password, presence: true, length: { minimum: 6 , allow_nil: true }
