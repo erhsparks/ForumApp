@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
+  def require_login!
+    redirect_to new_session_url unless current_user
+  end
+
   def current_user
     return nil unless session[:session_token]
 

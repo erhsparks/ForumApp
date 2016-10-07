@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by_credentials(user_params)
+
     if @user.is_a?(User)
       login!(@user)
 

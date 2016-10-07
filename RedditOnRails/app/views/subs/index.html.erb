@@ -1,0 +1,10 @@
+<h1>All Subs</h1>
+
+<% @subs.each do |s| %>
+  <p>
+    <%= link_to s.title, sub_url(s) %>
+    <%= link_to "Edit", edit_sub_url(s) %>
+  </p>
+<% end %>
+
+<%= button_to "New Sub", new_sub_url, method: :get %>

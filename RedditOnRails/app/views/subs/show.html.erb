@@ -1,0 +1,12 @@
+<h1><%= @sub.title %></h1>
+
+<% @sub.posts.each do |post| %>
+  <p>
+    <%= link_to post.title, post_url(post) %>
+    <%= link_to "Edit", edit_post_url(post) %>
+  </p>
+<% end %>
+
+<%= button_to "Delete #{@sub.title}!", sub_url(@sub), method: :delete %>
+<br>
+<%= link_to "<< Back to all subs", subs_url %>

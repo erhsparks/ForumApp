@@ -1,0 +1,18 @@
+<% action_url = s.persisted? ? sub_url(s) : subs_url %>
+<% http_method = s.persisted? ? "PATCH" : "POST" %>
+
+<% button_name = s.persisted? ? "Update" : "Create sub" %>
+
+<form action="<%= action_url %>" method="post">
+  <input type="hidden" name="_method" value="<%= http_method %>">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+<label for="title">Title</label>
+<input id="title" type="text" name="s[title]" value="<%= s[:title] if s.persisted? %>">
+
+<label for="description">Description</label>
+<input id="description" type="text" name="s[description]" value="<%= s[:description] if s.persisted? %>">
+
+<input type="submit" value="<%= button_name %>">
+
+</form>
