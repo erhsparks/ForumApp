@@ -1,0 +1,16 @@
+<% action_url = user.persisted? ? user_url(user) : users_url %>
+<% http_method = user.persisted? ? "PATCH" : "POST" %>
+
+<form action="<%= action_url %>" method="post">
+  <input type="hidden" name="_method" value="<%= http_method %>">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+<label for="Username">Username</label>
+<input id="Username" type="text" name="user[username]" value="<%= user.username if user.persisted? %>">
+
+<label for="Password">Password</label>
+<input id="Password" type="password" name="user[password]">
+
+<input type="submit" value="Sign up">
+
+</form>
