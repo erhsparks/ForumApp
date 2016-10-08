@@ -14,3 +14,6 @@ Post.create(title: "2", url: ".com", content: "blah", sub_id: 2, author_id: 1)
 Post.create(title: "3", url: ".com", content: "blah", sub_id: 3, author_id: 1)
 
 User.create(username: "a", password: "asdfasdf")
+
+Comment.create(content: "cool story bro", author_id: 1, post_id: 1)
+Comment.create(content: "cool story bro", author_id: 1, post_id: 1, parent_comment_id: 1)
