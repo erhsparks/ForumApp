@@ -7,24 +7,24 @@
   <input type="hidden" name="_method" value="<%= http_method %>">
   <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
-<label for="title">Title</label>
-<input id="title" type="text" name="post[title]" value="<%= post[:title] if post.persisted? %>">
+  <label for="title">Title</label>
+  <input id="title" type="text" name="post[title]" value="<%= post[:title] if post.persisted? %>">
 
-<br>
-<br>
+  <br>
+  <br>
 
-<label for="url">URL (Optional)</label>
-<input id="url" type="text" name="post[url]" value="<%= post.persisted? ? post[:url] : "http://" %>">
+  <label for="url">URL (Optional)</label>
+  <input id="url" type="text" name="post[url]" value="<%= post.persisted? ? post[:url] : "http://" %>">
 
-<br>
-<br>
+  <br>
+  <br>
 
-<label for="content">Content</label>
-<br>
-<textarea rows="10" cols="50" id="content" name="post[content]"><%= post[:content] if post.persisted? %></textarea>
+  <label for="content">Content</label>
+  <br>
+  <textarea rows="10" cols="50" id="content" name="post[content]"><%= post[:content] if post.persisted? %></textarea>
 
-<br>
-<br>
+  <br>
+  <br>
 
   <% Sub.all.each do |s| %>
     <label><%= s.title %>
@@ -33,8 +33,8 @@
     <br>
   <% end %>
 
-<br>
+  <br>
 
-<input type="submit" value="<%= button_name %>">
+  <input type="submit" value="<%= button_name %>">
 
 </form>

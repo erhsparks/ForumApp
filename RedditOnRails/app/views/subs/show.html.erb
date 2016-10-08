@@ -1,6 +1,9 @@
 <h1><%= @sub.title %></h1>
-<h2><%= @sub.description %></h2>
+<h2><i><%= @sub.description %></i></h2>
 
+<p>-----------------------</p>
+
+<h3>Posts:</h3>
 <% @sub.posts.each do |post| %>
   <p>
     <%= link_to post.title, post_url(post) %>
@@ -9,7 +12,9 @@
 <% end %>
 
 <%= button_to "New Post", new_post_url, method: :get  %>
-<br>
+
+<p>-----------------------</p>
+
 <%= button_to "Edit #{@sub.title}", edit_sub_url(@sub), method: :get %>
 <br>
 <%= button_to "Delete #{@sub.title}!", sub_url(@sub), method: :delete %>

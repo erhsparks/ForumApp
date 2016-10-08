@@ -14,13 +14,13 @@
 class Post < ActiveRecord::Base
   validates :title, :author_id, presence: true
 
-  has_many :post_subs
+  has_many :post_subs, dependent: :destroy, inverse_of: :post
 
   has_many :subs, through: :post_subs, source: :sub
 
   has_one :moderator, through: :sub
 
-  has_many :comments
+  has_many :comments, inverse_of: :post
 
   belongs_to :author,
     class_name: :User

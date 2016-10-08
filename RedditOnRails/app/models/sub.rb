@@ -13,7 +13,7 @@
 class Sub < ActiveRecord::Base
   validates :title, :description, :moderator_id, presence: true
 
-  has_many :post_subs
+  has_many :post_subs, dependent: :destroy, inverse_of: :sub
 
   has_many :posts, through: :post_subs, source: :post
 

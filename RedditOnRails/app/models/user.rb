@@ -12,15 +12,18 @@
 
 class User < ActiveRecord::Base
   has_many :subs,
-    foreign_key: :moderator_id
+    foreign_key: :moderator_id,
+    inverse_of: :moderator
 
   has_many :posts,
-    foreign_key: :author_id
+    foreign_key: :author_id,
+    inverse_of: :author
 
   has_many :moderated_posts, through: :subs, source: :posts
 
   has_many :comments,
-    foreign_key: :author_id
+    foreign_key: :author_id,
+    inverse_of: :author
 
   validates :username, presence: true, uniqueness: true
   validates :password_digest, presence: true
